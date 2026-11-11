@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- The text shown in the browser tab. CHANGE THIS. -->
+  <title>Alesya Biddle | Portfolio</title>
+
+  <!-- Marks the page as "JavaScript is on" so the scroll animation can work. Leave this. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Connects the design file. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR =====
+       Each link jumps to the section whose id matches (#about -> id="about"). -->
+  <header class="nav">
+    <a class="logo" href="#home">Your Name</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HOME / INTRO ===== -->
+    <section id="home" class="hero">
+      <!-- PHOTO: put your picture in the "images" folder, then change the file name in src.
+           alt describes the photo for screen readers and shows if the photo can't load. -->
+      <img class="avatar" src="images/me.svg" alt="Photo of Your Name">
+      <h1>Hi, I'm Alesya Biddle.</h1>
+      <p class="tagline">I'm a student who loves building things. Replace this with one sentence about you.</p>
+      <a class="button" href="#projects">See my work</a>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+      <h2 class="reveal">About me</h2>
+      <p class="reveal">
+        meimei cat meme 67
+      </p>
+      <!-- Add more info by copying a <li> line. -->
+      <ul class="skills reveal">
+        <li>Skill one</li>
+        <li>Skill two</li>
+        <li>Skill three</li>
+      </ul>
+    </section>
+
+    <!-- ===== PROJECTS =====
+         To add a project, copy one whole <article> ... </article> block
+         and paste it below the last one. Change the image, title and text. -->
+    <section id="projects" class="section">
+      <h2 class="reveal">Projects</h2>
+      <div class="cards">
+
+        <article class="card reveal">
+          <img src="images/snow_leopard.jpg" alt="Screenshot of Project One">
+          <div class="card-body">
+            <h3>Project One</h3>
+            <p>One or two sentences about what you made and what you used.</p>
+            <a href="#">View project</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <img src="images/Me&Danielcar.jpg" alt="Screenshot of Project Two">
+          <div class="card-body">
+            <h3>Project Two</h3>
+            <p>One or two sentences about what you made and what you used.</p>
+            <a href="#">View project</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <img src="images/happyhamster.jfif" alt="Screenshot of Project Three">
+          <div class="card-body">
+            <h3>Project Three</h3>
+            <p>One or two sentences about what you made and what you used.</p>
+            <a href="#">View project</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section">
+      <h2 class="reveal">Contact</h2>
+      <p class="reveal">Want to work together or just say hi?</p>
+      <!-- Change the email address in BOTH places. -->
+      <a class="button reveal" href="mailto:you@example.com">you@example.com</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <!-- The year fills in automatically from script.js. -->
+    <p>&copy; <span id="year">2026</span> Your Name</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

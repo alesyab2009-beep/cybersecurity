@@ -1,0 +1,116 @@
+/* ===== COLORS AND FONTS =====
+   Change these values and the whole site updates.
+   Colors are written as hex codes. Search "color picker" to find one you like. */
+:root {
+  --bg: #f6f7fb;        /* page background */
+  --card: #ffffff;      /* card background */
+  --text: #1c2333;      /* main text */
+  --muted: #5d667a;     /* lighter text */
+  --accent: #4f46e5;    /* buttons and links */
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ===== BASIC RESET ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }           /* smooth scrolling when you click a nav link */
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); }
+
+/* ===== NAVIGATION BAR ===== */
+.nav {
+  position: sticky; top: 0; z-index: 10;     /* stays at the top while you scroll */
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 24px;
+  background: rgba(246, 247, 251, 0.9);
+  backdrop-filter: blur(8px);
+}
+.nav a { text-decoration: none; color: var(--text); font-weight: 500; }
+.nav nav { display: flex; gap: 20px; }
+.logo { font-weight: 700; }
+
+/* ===== SECTIONS ===== */
+.section { max-width: 900px; margin: 0 auto; padding: 64px 24px; }
+h1, h2, h3 { line-height: 1.2; }
+h2 { font-size: 2rem; margin: 0 0 16px; }
+
+/* ===== HOME / INTRO ===== */
+.hero { text-align: center; padding: 72px 24px 56px; }
+.avatar {
+  width: 160px; height: 160px;
+  border-radius: 50%;          /* turns the square photo into a circle */
+  object-fit: cover;           /* crops the photo to fill the circle without squishing it */
+  margin: 0 auto 24px;
+}
+.hero h1 { font-size: clamp(2rem, 6vw, 3.2rem); margin: 0 0 12px; }
+.tagline { color: var(--muted); max-width: 520px; margin: 0 auto 28px; font-size: 1.1rem; }
+
+/* ===== BUTTON ===== */
+.button {
+  display: inline-block;
+  background: var(--accent); color: #fff;
+  padding: 12px 24px; border-radius: 999px;
+  text-decoration: none; font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;   /* makes the hover effect smooth */
+}
+.button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3); }
+
+/* ===== ABOUT ===== */
+.skills { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.skills li { background: var(--card); padding: 6px 14px; border-radius: 999px; border: 1px solid #dde1ea; }
+
+/* ===== PROJECT CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));   /* as many columns as fit */
+  gap: 24px;
+}
+.card {
+  background: var(--card); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 2px 10px rgba(20, 30, 60, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(20, 30, 60, 0.15); }
+.card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 0.4s ease; }
+.card:hover img { transform: scale(1.06); }           /* photo zooms slowly on hover (overflow: hidden above keeps it inside the card) */
+.card-body { padding: 16px 18px 20px; }
+.card-body h3 { margin: 0 0 6px; }
+.card-body p { margin: 0 0 10px; color: var(--muted); }
+
+/* ===== FOOTER ===== */
+footer { text-align: center; padding: 32px 24px; color: var(--muted); }
+
+/* ===== ANIMATION 1: the intro fades up when the page loads =====
+   @keyframes describes the start and end. Each child of .hero uses it. */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero > * { animation: fade-up 0.8s ease both; }
+.hero > :nth-child(2) { animation-delay: 0.15s; }      /* each item starts a little later */
+.hero > :nth-child(3) { animation-delay: 0.30s; }
+.hero > :nth-child(4) { animation-delay: 0.45s; }
+
+/* ===== ANIMATION 2: items fade in as you scroll down to them =====
+   Anything with class="reveal" starts hidden. script.js adds the class "visible"
+   when it scrolls into view. The "js" part keeps things visible if JavaScript is off. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== PEOPLE WHO TURN OFF MOTION =====
+   Some visitors get dizzy from animation, so this switches it off for them. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
