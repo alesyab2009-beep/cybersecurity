@@ -17,3 +17,16 @@ revealItems.forEach((item) => observer.observe(item));
 // ===== FOOTER YEAR =====
 // Puts the current year in the footer so you never have to update it.
 document.getElementById('year').textContent = new Date().getFullYear();
+// ===== CURSOR FOLLOWING GLOW =====
+
+document.addEventListener("mousemove", (event) => {
+    document.documentElement.style.setProperty(
+        "--mouse-x",
+        event.clientX + "px"
+    );
+
+    document.documentElement.style.setProperty(
+        "--mouse-y",
+        event.clientY + "px"
+    );
+});
