@@ -247,11 +247,29 @@ h2 {
 }
 
 /* ===== CONTACT ===== */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.contact-container h2,
+.contact-container p {
+  margin: 0;
+}
+
+.contact-container p {
+  color: var(--muted);
+}
+
 .contact-links {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  margin-top: 10px;
 }
 
 /* ===== FOOTER ===== */
