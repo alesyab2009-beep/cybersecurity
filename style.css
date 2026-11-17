@@ -353,17 +353,22 @@ footer {
     transform: none;
   }
 }
+
 /* ===== LITTLE PIXEL ROBOT ===== */
 
 #little-robot {
-  position: fixed;
-  bottom: 15px;
-  left: 15px;
+  position: fixed !important;
 
-  width: 55px;
-  height: 55px;
+  /* Pin to the bottom-left corner of the SCREEN */
+  left: 18px !important;
+  bottom: 18px !important;
+  top: auto !important;
+  right: auto !important;
 
-  z-index: 99999;
+  width: 48px;
+  height: 48px;
+
+  z-index: 999999;
   pointer-events: none;
 
   display: block;
@@ -379,11 +384,12 @@ footer {
 /* Mobile sizing */
 @media (max-width: 600px) {
   #little-robot {
-    width: 42px;
-    height: 42px;
-    bottom: 10px;
-    left: 10px;
+    width: 38px;
+    height: 38px;
+    left: 10px !important;
+    bottom: 10px !important;
   }
 }
+
 
 
