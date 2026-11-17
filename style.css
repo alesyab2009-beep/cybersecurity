@@ -358,7 +358,7 @@ footer {
   position: fixed;
   bottom: 14px;
   left: 14px;
-  width: 76px;
+  width: 42px;
   z-index: 9999;
   pointer-events: none;
   image-rendering: pixelated;
@@ -383,7 +383,7 @@ footer {
 
 @media (max-width: 600px) {
   #little-robot {
-    width: 58px;
+    width: 36px;
     bottom: 10px;
     left: 10px;
   }
