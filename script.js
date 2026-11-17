@@ -72,3 +72,55 @@ if (robot && leftPupil && rightPupil) {
 
   updateRobotEyes();
 }
+
+// ===== ROBOT EYES FOLLOW CURSOR =====
+
+const robot = document.getElementById("robot-svg");
+const leftPupil = document.getElementById("left-pupil");
+const rightPupil = document.getElementById("right-pupil");
+
+if (robot && leftPupil && rightPupil) {
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+
+  let currentX = 0;
+  let currentY = 0;
+
+  document.addEventListener("mousemove", (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+  });
+
+  function updateRobotEyes() {
+    const position = robot.getBoundingClientRect();
+
+    const centerX = position.left + position.width / 2;
+    const centerY = position.top + position.height / 2;
+
+    const angle = Math.atan2(
+      mouseY - centerY,
+      mouseX - centerX
+    );
+
+    const targetX = Math.cos(angle) * 3.5;
+    const targetY = Math.sin(angle) * 3.5;
+
+    currentX += (targetX - currentX) * 0.15;
+    currentY += (targetY - currentY) * 0.15;
+
+    leftPupil.setAttribute(
+      "transform",
+      `translate(${currentX}, ${currentY})`
+    );
+
+    rightPupil.setAttribute(
+      "transform",
+      `translate(${currentX}, ${currentY})`
+    );
+
+    requestAnimationFrame(updateRobotEyes);
+  }
+
+  updateRobotEyes();
+}
