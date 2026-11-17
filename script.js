@@ -32,95 +32,57 @@ document.addEventListener("mousemove", (event) => {
 });
 
 
-// ===== LITTLE ROBOT PET =====
 
+// PIXEL ROBOT EYE TRACKING
 const robot = document.getElementById("robot-svg");
-const leftPupil = document.getElementById("left-pupil");
-const rightPupil = document.getElementById("right-pupil");
+const leftEye = document.getElementById("left-eye");
+const rightEye = document.getElementById("right-eye");
 
-if (robot && leftPupil && rightPupil) {
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
+if (robot && leftEye && rightEye) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
 
-  let currentX = 0;
-  let currentY = 0;
+    let currentX = 0;
+    let currentY = 0;
 
-  document.addEventListener("mousemove", (event) => {
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-  });
+    document.addEventListener("mousemove", (event) => {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+    });
 
-  function updateRobotEyes() {
-    const position = robot.getBoundingClientRect();
+    function moveRobotEyes() {
+        const rect = robot.getBoundingClientRect();
 
-    const centerX = position.left + position.width / 2;
-    const centerY = position.top + position.height / 2;
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
 
-    const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
+        const angle = Math.atan2(
+            mouseY - centerY,
+            mouseX - centerX
+        );
 
-    const targetX = Math.cos(angle) * 3.5;
-    const targetY = Math.sin(angle) * 3.5;
+        const distance = 1.5;
 
-    currentX += (targetX - currentX) * 0.15;
-    currentY += (targetY - currentY) * 0.15;
+        const targetX = Math.cos(angle) * distance;
+        const targetY = Math.sin(angle) * distance;
 
-    leftPupil.setAttribute("transform", `translate(${currentX}, ${currentY})`);
-    rightPupil.setAttribute("transform", `translate(${currentX}, ${currentY})`);
+        // Smooth eye movement
+        currentX += (targetX - currentX) * 0.12;
+        currentY += (targetY - currentY) * 0.12;
 
-    requestAnimationFrame(updateRobotEyes);
-  }
+        leftEye.setAttribute(
+            "transform",
+            `translate(${currentX}, ${currentY})`
+        );
 
-  updateRobotEyes();
+        rightEye.setAttribute(
+            "transform",
+            `translate(${currentX}, ${currentY})`
+        );
+
+        requestAnimationFrame(moveRobotEyes);
+    }
+
+    moveRobotEyes();
 }
 
-// ===== ROBOT EYES FOLLOW CURSOR =====
-
-const robot = document.getElementById("robot-svg");
-const leftPupil = document.getElementById("left-pupil");
-const rightPupil = document.getElementById("right-pupil");
-
-if (robot && leftPupil && rightPupil) {
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-
-  let currentX = 0;
-  let currentY = 0;
-
-  document.addEventListener("mousemove", (event) => {
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-  });
-
-  function updateRobotEyes() {
-    const position = robot.getBoundingClientRect();
-
-    const centerX = position.left + position.width / 2;
-    const centerY = position.top + position.height / 2;
-
-    const angle = Math.atan2(
-      mouseY - centerY,
-      mouseX - centerX
-    );
-
-    const targetX = Math.cos(angle) * 3.5;
-    const targetY = Math.sin(angle) * 3.5;
-
-    currentX += (targetX - currentX) * 0.15;
-    currentY += (targetY - currentY) * 0.15;
-
-    leftPupil.setAttribute(
-      "transform",
-      `translate(${currentX}, ${currentY})`
-    );
-
-    rightPupil.setAttribute(
-      "transform",
-      `translate(${currentX}, ${currentY})`
-    );
-
-    requestAnimationFrame(updateRobotEyes);
-  }
-
-  updateRobotEyes();
-}
