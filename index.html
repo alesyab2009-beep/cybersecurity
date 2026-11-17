@@ -119,3 +119,105 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<!-- little robot-->
+<div id="little-robot">
+  <svg id="robot-svg" viewBox="0 0 180 190"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+      <linearGradient id="robotBody" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#e9d5ff"/>
+        <stop offset="50%" stop-color="#a78bfa"/>
+        <stop offset="100%" stop-color="#6d28d9"/>
+      </linearGradient>
+
+      <filter id="robotGlow">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <!-- Antenna -->
+    <path d="M90 25 V12" stroke="#c4b5fd" stroke-width="4"
+          stroke-linecap="round"/>
+    <circle cx="90" cy="9" r="6" fill="#e9d5ff"
+            filter="url(#robotGlow)"/>
+
+    <!-- Head -->
+    <rect x="43" y="25" width="94" height="77"
+          rx="27" fill="url(#robotBody)"
+          stroke="#e9d5ff" stroke-width="2"/>
+
+    <!-- Side details -->
+    <rect x="35" y="49" width="10" height="25"
+          rx="5" fill="#c4b5fd"/>
+    <rect x="135" y="49" width="10" height="25"
+          rx="5" fill="#c4b5fd"/>
+
+    <!-- Face screen -->
+    <rect x="53" y="39" width="74" height="49"
+          rx="18" fill="#24143d"/>
+
+    <!-- Left eye -->
+    <circle cx="75" cy="62" r="10" fill="#ffffff"/>
+    <g id="left-pupil">
+      <circle cx="75" cy="62" r="5.5" fill="#c4b5fd"/>
+      <circle cx="77" cy="60" r="2" fill="#ffffff"/>
+    </g>
+
+    <!-- Right eye -->
+    <circle cx="105" cy="62" r="10" fill="#ffffff"/>
+    <g id="right-pupil">
+      <circle cx="105" cy="62" r="5.5" fill="#c4b5fd"/>
+      <circle cx="107" cy="60" r="2" fill="#ffffff"/>
+    </g>
+
+    <!-- Mouth -->
+    <path d="M84 78 Q90 83 96 78"
+          fill="none" stroke="#d8b4fe"
+          stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Body -->
+    <path d="M53 104 Q90 93 127 104
+             L132 143 Q90 160 48 143 Z"
+          fill="url(#robotBody)"
+          stroke="#e9d5ff" stroke-width="2"/>
+
+    <!-- Chest light -->
+    <circle cx="90" cy="123" r="9"
+            fill="#e9d5ff" filter="url(#robotGlow)"/>
+    <circle cx="90" cy="123" r="4" fill="#ffffff"/>
+
+    <!-- Arms -->
+    <path d="M51 112 Q35 120 39 137"
+          stroke="#a78bfa" stroke-width="11"
+          stroke-linecap="round" fill="none"/>
+    <path d="M129 112 Q145 120 141 137"
+          stroke="#a78bfa" stroke-width="11"
+          stroke-linecap="round" fill="none"/>
+
+    <!-- Hands -->
+    <circle cx="39" cy="139" r="7" fill="#c4b5fd"/>
+    <circle cx="141" cy="139" r="7" fill="#c4b5fd"/>
+
+    <!-- Sitting legs -->
+    <path d="M65 145 Q48 151 50 163
+             Q52 172 75 168"
+          fill="#8b5cf6" stroke="#d8b4fe" stroke-width="2"/>
+
+    <path d="M115 145 Q132 151 130 163
+             Q128 172 105 168"
+          fill="#8b5cf6" stroke="#d8b4fe" stroke-width="2"/>
+
+    <!-- Feet -->
+    <ellipse cx="62" cy="169" rx="17" ry="7"
+             fill="#c4b5fd"/>
+    <ellipse cx="118" cy="169" rx="17" ry="7"
+             fill="#c4b5fd"/>
+
+  </svg>
+</div>
