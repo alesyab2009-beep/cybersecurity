@@ -353,40 +353,16 @@ footer {
     transform: none;
   }
 }
-/* Little pixel robot */
 #little-robot {
-  position: fixed;
-  bottom: 14px;
-  left: 14px;
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
   width: 42px;
-  z-index: 9999;
+  height: auto;
+  z-index: 99999;
   pointer-events: none;
   image-rendering: pixelated;
   animation: robot-float 3s ease-in-out infinite;
-}
-
-#robot-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.25));
-}
-
-@keyframes robot-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-@media (max-width: 600px) {
-  #little-robot {
-    width: 36px;
-    bottom: 10px;
-    left: 10px;
-  }
 }
 
 
