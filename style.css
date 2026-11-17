@@ -354,42 +354,6 @@ footer {
   }
 }
 
-/* ===== LITTLE PIXEL ROBOT ===== */
-
-#little-robot {
-  position: fixed !important;
-
-  /* Pin to the bottom-left corner of the SCREEN */
-  left: 18px !important;
-  bottom: 18px !important;
-  top: auto !important;
-  right: auto !important;
-
-  width: 55px;
-  height: 55px;
-
-  z-index: 999999;
-  pointer-events: none;
-
-  display: block;
-}
-
-#robot-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  image-rendering: pixelated;
-}
-
-/* Mobile sizing */
-@media (max-width: 600px) {
-  #little-robot {
-    width: 43px;
-    height: 43px;
-    left: 10px !important;
-    bottom: 10px !important;
-  }
-}
 
 
 
