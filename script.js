@@ -31,37 +31,3 @@ document.addEventListener("mousemove", (event) => {
     );
 });
 
-
-// Little robot eyes follow the cursor
-const robot = document.getElementById("robot-svg");
-const leftEye = document.getElementById("left-eye");
-const rightEye = document.getElementById("right-eye");
-
-if (robot && leftEye && rightEye) {
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-
-  document.addEventListener("mousemove", (event) => {
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-  });
-
-  function moveRobotEyes() {
-    const robotRect = robot.getBoundingClientRect();
-
-    const robotX = robotRect.left + robotRect.width / 2;
-    const robotY = robotRect.top + robotRect.height / 2;
-
-    const angle = Math.atan2(mouseY - robotY, mouseX - robotX);
-
-    const eyeX = Math.cos(angle) * 1.5;
-    const eyeY = Math.sin(angle) * 1.5;
-
-    leftEye.setAttribute("transform", `translate(${eyeX}, ${eyeY})`);
-    rightEye.setAttribute("transform", `translate(${eyeX}, ${eyeY})`);
-
-    requestAnimationFrame(moveRobotEyes);
-  }
-
-  moveRobotEyes();
-}
