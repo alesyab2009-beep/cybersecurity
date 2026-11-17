@@ -354,13 +354,14 @@ footer {
   }
 }
 
+
 /* LITTLE ROBOT PET */
 
 #little-robot {
   position: fixed;
-  bottom: 12px;
-  left: 12px;
-  width: 115px;
+  bottom: 15px;
+  left: 15px;
+  width: 65px;
   height: auto;
   z-index: 9999;
   pointer-events: none;
@@ -369,49 +370,10 @@ footer {
 }
 
 #robot-svg {
+  display: block;
   width: 100%;
   height: auto;
+  max-width: 65px;
   overflow: visible;
 }
 
-/* Gentle floating movement */
-@keyframes robotFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-/* Occasional blinking */
-#robot-svg {
-  animation: robotBlink 5s infinite;
-  transform-origin: center;
-}
-
-@keyframes robotBlink {
-  0%, 45%, 48%, 100% {
-    opacity: 1;
-  }
-  46%, 47% {
-    opacity: 0.85;
-  }
-}
-
-/* Smaller on mobile */
-@media (max-width: 600px) {
-  #little-robot {
-    width: 85px;
-    bottom: 8px;
-    left: 8px;
-  }
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  #little-robot,
-  #robot-svg {
-    animation: none;
-  }
-}
